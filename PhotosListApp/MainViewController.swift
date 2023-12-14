@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,22 +26,25 @@ class ViewController: UIViewController, UITableViewDataSource {
             self.contentList = items
         }
         tableView.dataSource = self
-
+        
     }
-    
-    
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentList.count
     }
     
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellId")
-    cell.textLabel?.text = self.contentList[indexPath.row].name
     
+    let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellId")
+    
+    cell.textLabel?.text = self.contentList[indexPath.row].name
+    let photoURL = contentList[indexPath.row].image
+    cell.imageView?.imageFromURL(photoURL)
+
     return cell
     }
-    
 
 }
+
+
 

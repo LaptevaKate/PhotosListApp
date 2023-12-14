@@ -6,22 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkService {
     
     private let baseUrl = BaseURL.urlGetString.rawValue
     
     func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
-        
-        if let urlToServer = URL.init(string: baseUrl){
-            URLSession.shared.dataTask(with: urlToServer) { data, response, error in
+        if let url = URL.init(string: baseUrl){
+            URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
-                    print(error?.localizedDescription ?? "Unknown error")
+                    print(error?.localizedDescription ?? "Error is unknown")
                     return
                 }
                 do {
-                    let decoder = JSONDecoder()
-                    let result = try decoder.decode(GetModel.self, from: data)
+                    let result = try JSONDecoder().decode(GetModel.self, from: data)
                     DispatchQueue.main.async {
                         completionHandler(result.content)
                     }
@@ -31,4 +30,6 @@ class NetworkService {
             }.resume()
         }
     }
+    
+
 }
