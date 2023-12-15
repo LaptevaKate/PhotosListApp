@@ -1,5 +1,5 @@
 //
-//  Extension.swift
+//  UIImageView.swift
 //  PhotosListApp
 //
 //  Created by Екатерина Лаптева on 14.12.23.

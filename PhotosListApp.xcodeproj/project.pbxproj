@@ -16,7 +16,7 @@
 		5E7BEBCC2B2ADD2100D092A9 /* GetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */; };
 		5E7BEBD62B2AE93A00D092A9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBD52B2AE93A00D092A9 /* NetworkService.swift */; };
 		5E7BEBD82B2AEC0400D092A9 /* BaseUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */; };
-		5E7BEBDD2B2B14AE00D092A9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBDC2B2B14AE00D092A9 /* Extension.swift */; };
+		5E7BEBDD2B2B14AE00D092A9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBDC2B2B14AE00D092A9 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModel.swift; sourceTree = "<group>"; };
 		5E7BEBD52B2AE93A00D092A9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlModel.swift; sourceTree = "<group>"; };
-		5E7BEBDC2B2B14AE00D092A9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5E7BEBDC2B2B14AE00D092A9 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E452F312B2C31A4001BB2F5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */,
+				5E7BEBB92B2ADC0800D092A9 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5E452F322B2C3227001BB2F5 /* ImageViewExtenstion */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BEBDC2B2B14AE00D092A9 /* UIImageView.swift */,
+			);
+			path = ImageViewExtenstion;
+			sourceTree = "<group>";
+		};
+		5E452F332B2C327A001BB2F5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5E452F342B2C3290001BB2F5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BEBBB2B2ADC0800D092A9 /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5E452F352B2C32C9001BB2F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E7BEBC22B2ADC0A00D092A9 /* LaunchScreen.storyboard */,
+				5E7BEBBD2B2ADC0800D092A9 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5E7BEBAB2B2ADC0800D092A9 = {
 			isa = PBXGroup;
 			children = (
@@ -64,33 +106,31 @@
 		5E7BEBB62B2ADC0800D092A9 /* PhotosListApp */ = {
 			isa = PBXGroup;
 			children = (
-				5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */,
-				5E7BEBB92B2ADC0800D092A9 /* SceneDelegate.swift */,
-				5E7BEBBB2B2ADC0800D092A9 /* MainViewController.swift */,
-				5E7BEBDC2B2B14AE00D092A9 /* Extension.swift */,
+				5E452F312B2C31A4001BB2F5 /* Application */,
 				5E7BEBD92B2B071200D092A9 /* NetworkManager */,
-				5E7BEBD42B2AE90A00D092A9 /* Models */,
-				5E7BEBBD2B2ADC0800D092A9 /* Main.storyboard */,
+				5E7BEBD42B2AE90A00D092A9 /* Model */,
+				5E452F342B2C3290001BB2F5 /* ViewController */,
+				5E452F322B2C3227001BB2F5 /* ImageViewExtenstion */,
+				5E452F352B2C32C9001BB2F5 /* View */,
 				5E7BEBC02B2ADC0A00D092A9 /* Assets.xcassets */,
-				5E7BEBC22B2ADC0A00D092A9 /* LaunchScreen.storyboard */,
 				5E7BEBC52B2ADC0A00D092A9 /* Info.plist */,
 			);
 			path = PhotosListApp;
 			sourceTree = "<group>";
 		};
-		5E7BEBD42B2AE90A00D092A9 /* Models */ = {
+		5E7BEBD42B2AE90A00D092A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */,
 				5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5E7BEBD92B2B071200D092A9 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
 				5E7BEBD52B2AE93A00D092A9 /* NetworkService.swift */,
+				5E452F332B2C327A001BB2F5 /* Helper */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -172,7 +212,7 @@
 				5E7BEBD62B2AE93A00D092A9 /* NetworkService.swift in Sources */,
 				5E7BEBD82B2AEC0400D092A9 /* BaseUrlModel.swift in Sources */,
 				5E7BEBBA2B2ADC0800D092A9 /* SceneDelegate.swift in Sources */,
-				5E7BEBDD2B2B14AE00D092A9 /* Extension.swift in Sources */,
+				5E7BEBDD2B2B14AE00D092A9 /* UIImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +367,7 @@
 				DEVELOPMENT_TEAM = BCFL245T3H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotosListApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Do you allow the app to access the camera?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -355,6 +396,7 @@
 				DEVELOPMENT_TEAM = BCFL245T3H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhotosListApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Do you allow the app to access the camera?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
