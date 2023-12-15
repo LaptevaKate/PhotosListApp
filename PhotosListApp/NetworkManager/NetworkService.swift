@@ -40,7 +40,7 @@ class NetworkService {
             }.resume()
         }
     }
-
+    
     public func uploadPhoto(id: Int, image: UIImage){
         let url: String = urlPost
         guard let url: URL = URL(string: url) else { return }
@@ -96,4 +96,3 @@ class NetworkService {
         task.resume()
     }
 }
-

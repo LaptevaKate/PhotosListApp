@@ -71,7 +71,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
     }
 }
 
-// MARK: - extensions
+// MARK: - extensions:
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     
@@ -81,6 +81,8 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellId")
+        
+        
         cell.textLabel?.text = self.contentList[indexPath.row].name
         let photoURL = contentList[indexPath.row].image
         cell.imageView?.imageFromURL(photoURL)
@@ -122,6 +124,7 @@ extension MainViewController: UITableViewDelegate {
 }
 // MARK: - UIImagePickerControllerDelegate
 extension MainViewController:  UIImagePickerControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
         
