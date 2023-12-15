@@ -7,11 +7,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var fetchData = NetworkService()
+    private func setUpInfo() {
+        NetworkService.shared.fetchData { items in
+            self.contentList = items
+            self.tableView.reloadData()
+        }
+    }
+    
     var contentList = [ContentList]() {
         didSet {
             DispatchQueue.main.async {
@@ -19,14 +25,14 @@ class MainViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+    private var selectedId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData.fetchData { items in
-            self.contentList = items
-        }
         tableView.dataSource = self
-        
+        tableView.delegate = self
+        setUpInfo()
+
     }
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +49,27 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
     return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedId = indexPath.row
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == contentList.count - 1 {
+            setUpInfo()
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
 
+        if let image = info[.originalImage] as? UIImage {
+        // send photo
+        }
+    }
 }
 
 

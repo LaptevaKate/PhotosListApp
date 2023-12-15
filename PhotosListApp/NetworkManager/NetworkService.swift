@@ -10,7 +10,10 @@ import UIKit
 
 class NetworkService {
     
+    static let shared = NetworkService()
     private let baseUrl = BaseURL.urlGetString.rawValue
+    
+    private init(){}
     
     func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
         if let url = URL.init(string: baseUrl){
