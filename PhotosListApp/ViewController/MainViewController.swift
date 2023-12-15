@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -42,6 +43,32 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    
+    private func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] accessGranted in
+            if !accessGranted {
+                DispatchQueue.main.async {
+                    self?.alertCameraAccessNeeded()
+                }
+            }
+        }
+    }
+    
+    private  func alertCameraAccessNeeded() {
+        guard let settingsAppURL = URL(string: UIApplication.openSettingsURLString),
+              UIApplication.shared.canOpenURL(settingsAppURL) else { return }
+        let alert = UIAlertController(
+            title: "Need Camera Access",
+            message: "Camera access is required to take pictures of item.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alert.addAction(UIAlertAction(title: "Allow Camera", style: .cancel) { _ in
+            UIApplication.shared.open(settingsAppURL, options: [:])
+        })
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - extensions
@@ -72,10 +99,25 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedId = indexPath.row
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .camera
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        
+        let picker = UIImagePickerController()
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch cameraAuthorizationStatus {
+        case .notDetermined:
+            requestCameraPermission()
+            return
+        case .authorized:
+            break
+        case .restricted, .denied:
+            alertCameraAccessNeeded()
+            return
+        default:
+            return
+        }
+        picker.sourceType = .camera
+        present(picker, animated: true)
     }
 }
 // MARK: - UIImagePickerControllerDelegate
