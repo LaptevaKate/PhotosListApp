@@ -12,13 +12,17 @@ class NetworkService {
     
     static let shared = NetworkService()
     
+    //MARK: - Private Properties
+    
     private let baseUrl = BaseURL.urlGetString.rawValue
     private let urlPost = BaseURL.urlPostString.rawValue
     private let name: String = "Name Of Developer"
     
     private init(){}
     
-    func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
+    //MARK: - Public Methods
+    
+    public func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
         if let url = URL.init(string: baseUrl){
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
@@ -37,16 +41,16 @@ class NetworkService {
         }
     }
 
-    func uploadPhoto(id: Int, image: UIImage){
+    public func uploadPhoto(id: Int, image: UIImage){
         let url: String = urlPost
         guard let url: URL = URL(string: url) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-
+        
         let boundary = UUID().uuidString
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.addValue("*/*", forHTTPHeaderField: "accept")
-
+        
         let imageData = image.jpegData(compressionQuality: 1.0)!
         let body = NSMutableData()
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
@@ -61,19 +65,19 @@ class NetworkService {
         body.append(imageData)
         body.append("\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
         request.httpBody = body as Data
-
+        
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
                 print(error?.localizedDescription ?? "Unknown error")
                 return
             }
-
+            
             guard let httpResponse = response as? HTTPURLResponse else {
                 print("Error: invalid response")
                 return
             }
-
+            
             if httpResponse.statusCode == 200 {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
@@ -92,4 +96,4 @@ class NetworkService {
         task.resume()
     }
 }
-    
+
