@@ -25,6 +25,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+    
     private var selectedId = 0
     
     override func viewDidLoad() {
@@ -67,7 +68,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         dismiss(animated: true, completion: nil)
 
         if let image = info[.originalImage] as? UIImage {
-        // send photo
+            NetworkService.shared.uploadPhoto(id: selectedId, image: image)
         }
     }
 }

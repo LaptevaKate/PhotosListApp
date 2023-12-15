@@ -8,7 +8,6 @@
 import Foundation
 
 enum BaseURL: String {
-    
     case urlGetString = "https://junior.balinasoft.com/api/v2/photo/type"
     case urlPostString = "https://junior.balinasoft.com/api/v2/photo"
 }

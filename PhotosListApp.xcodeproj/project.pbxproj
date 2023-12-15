@@ -14,7 +14,6 @@
 		5E7BEBC12B2ADC0A00D092A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7BEBC02B2ADC0A00D092A9 /* Assets.xcassets */; };
 		5E7BEBC42B2ADC0A00D092A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7BEBC22B2ADC0A00D092A9 /* LaunchScreen.storyboard */; };
 		5E7BEBCC2B2ADD2100D092A9 /* GetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */; };
-		5E7BEBCE2B2AE13800D092A9 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBCD2B2AE13800D092A9 /* PostModel.swift */; };
 		5E7BEBD62B2AE93A00D092A9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBD52B2AE93A00D092A9 /* NetworkService.swift */; };
 		5E7BEBD82B2AEC0400D092A9 /* BaseUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */; };
 		5E7BEBDD2B2B14AE00D092A9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBDC2B2B14AE00D092A9 /* Extension.swift */; };
@@ -30,7 +29,6 @@
 		5E7BEBC32B2ADC0A00D092A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E7BEBC52B2ADC0A00D092A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModel.swift; sourceTree = "<group>"; };
-		5E7BEBCD2B2AE13800D092A9 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		5E7BEBD52B2AE93A00D092A9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrlModel.swift; sourceTree = "<group>"; };
 		5E7BEBDC2B2B14AE00D092A9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -83,9 +81,8 @@
 		5E7BEBD42B2AE90A00D092A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */,
-				5E7BEBCD2B2AE13800D092A9 /* PostModel.swift */,
 				5E7BEBD72B2AEC0400D092A9 /* BaseUrlModel.swift */,
+				5E7BEBCB2B2ADD2100D092A9 /* GetModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,7 +167,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E7BEBBC2B2ADC0800D092A9 /* MainViewController.swift in Sources */,
-				5E7BEBCE2B2AE13800D092A9 /* PostModel.swift in Sources */,
 				5E7BEBB82B2ADC0800D092A9 /* AppDelegate.swift in Sources */,
 				5E7BEBCC2B2ADD2100D092A9 /* GetModel.swift in Sources */,
 				5E7BEBD62B2AE93A00D092A9 /* NetworkService.swift in Sources */,
