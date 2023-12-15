@@ -13,9 +13,6 @@ extension UIImageView {
         
         let image = UIImage(systemName: "photo")
         self.image = image
-//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-//        image?.draw(in: CGRect(origin: .zero, size: size))
-//        self.image = UIGraphicsGetImageFromCurrentImageContext()
         
         guard let URLString = URLString else { return }
         let imageFromUrl = URLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
