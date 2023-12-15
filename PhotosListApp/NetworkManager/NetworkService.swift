@@ -23,7 +23,7 @@ class NetworkService {
     //MARK: - Public Methods
     
     public func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
-        if let url = URL.init(string: baseUrl){
+        if let url = URL.init(string: baseUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     print(error?.localizedDescription ?? "Error is unknown")
