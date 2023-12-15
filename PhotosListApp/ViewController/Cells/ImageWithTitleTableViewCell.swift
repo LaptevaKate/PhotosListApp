@@ -47,8 +47,11 @@ private extension ImageWithTitleTableViewCell {
         contentView.addSubview(cellTitleLabel)
         contentView.addSubview(cellImageView)
         
+        let cellImageViewTopConstraint = cellImageView.heightAnchor.constraint(equalToConstant: 40)
+        cellImageViewTopConstraint.priority = .defaultHigh
+        
         NSLayoutConstraint.activate([
-            cellImageView.heightAnchor.constraint(equalToConstant: 40),
+            cellImageViewTopConstraint,
             cellImageView.widthAnchor.constraint(equalToConstant: 40),
             cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
