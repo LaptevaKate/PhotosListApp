@@ -17,18 +17,12 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
     private var selectedId = 0
     
     //MARK: - Public Properties
-    public var contentList = [ContentList]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    public var contentList = [ContentList]()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.register(ImageWithTitleTableViewCell.self, forCellReuseIdentifier: ImageWithTitleTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         setUpInfo()
@@ -80,12 +74,9 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cellId")
-        
-        
-        cell.textLabel?.text = self.contentList[indexPath.row].name
-        let photoURL = contentList[indexPath.row].image
-        cell.imageView?.imageFromURL(photoURL)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ImageWithTitleTableViewCell.identifier, for: indexPath) as! ImageWithTitleTableViewCell
+        let content = contentList[indexPath.row]
+        cell.configure(with: content)
         
         return cell
     }
@@ -93,13 +84,8 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == contentList.count - 1 {
-            setUpInfo()
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         selectedId = indexPath.row
         
         let picker = UIImagePickerController()

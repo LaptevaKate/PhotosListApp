@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E3F46602B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3F465F2B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift */; };
 		5E7BEBB82B2ADC0800D092A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */; };
 		5E7BEBBA2B2ADC0800D092A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBB92B2ADC0800D092A9 /* SceneDelegate.swift */; };
 		5E7BEBBC2B2ADC0800D092A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBBB2B2ADC0800D092A9 /* MainViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E3F465F2B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithTitleTableViewCell.swift; sourceTree = "<group>"; };
 		5E7BEBB42B2ADC0800D092A9 /* PhotosListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7BEBB92B2ADC0800D092A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E3F465E2B2CCC9E00A05D5B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5E3F465F2B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		5E452F312B2C31A4001BB2F5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5E7BEBBB2B2ADC0800D092A9 /* MainViewController.swift */,
+				5E3F465E2B2CCC9E00A05D5B /* Cells */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E3F46602B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift in Sources */,
 				5E7BEBBC2B2ADC0800D092A9 /* MainViewController.swift in Sources */,
 				5E7BEBB82B2ADC0800D092A9 /* AppDelegate.swift in Sources */,
 				5E7BEBCC2B2ADD2100D092A9 /* GetModel.swift in Sources */,
