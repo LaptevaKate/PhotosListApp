@@ -16,7 +16,7 @@ class NetworkService {
     
     private let baseUrl = BaseURL.urlGetString.rawValue
     private let urlPost = BaseURL.urlPostString.rawValue
-    private let name: String = "Name Of Developer"
+    private let name: String = "Lapteva Ekaterina"
     
     private init(){}
     

@@ -105,6 +105,7 @@ extension MainViewController: UITableViewDelegate {
             return
         }
         picker.sourceType = .camera
+        picker.delegate = self
         present(picker, animated: true)
     }
 }
