@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E358D572B35FA0700821102 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E358D562B35FA0700821102 /* Collection.swift */; };
 		5E3F46602B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3F465F2B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift */; };
 		5E7BEBB82B2ADC0800D092A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */; };
 		5E7BEBBA2B2ADC0800D092A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7BEBB92B2ADC0800D092A9 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E358D562B35FA0700821102 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		5E3F465F2B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithTitleTableViewCell.swift; sourceTree = "<group>"; };
 		5E7BEBB42B2ADC0800D092A9 /* PhotosListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotosListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7BEBB72B2ADC0800D092A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E358D552B35F9CC00821102 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E358D562B35FA0700821102 /* Collection.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5E3F465E2B2CCC9E00A05D5B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		5E7BEBB62B2ADC0800D092A9 /* PhotosListApp */ = {
 			isa = PBXGroup;
 			children = (
+				5E358D552B35F9CC00821102 /* Extensions */,
 				5E452F312B2C31A4001BB2F5 /* Application */,
 				5E7BEBD92B2B071200D092A9 /* NetworkManager */,
 				5E7BEBD42B2AE90A00D092A9 /* Model */,
@@ -217,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E358D572B35FA0700821102 /* Collection.swift in Sources */,
 				5E3F46602B2CCCBD00A05D5B /* ImageWithTitleTableViewCell.swift in Sources */,
 				5E7BEBBC2B2ADC0800D092A9 /* MainViewController.swift in Sources */,
 				5E7BEBB82B2ADC0800D092A9 /* AppDelegate.swift in Sources */,

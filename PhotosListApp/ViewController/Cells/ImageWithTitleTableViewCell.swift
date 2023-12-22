@@ -34,6 +34,12 @@ final class ImageWithTitleTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cellTitleLabel.text = nil
+        cellImageView.image = nil
+    }
+    
     func configure(with content: ContentList) {
         cellTitleLabel.text = content.name
         let photoURL = content.image

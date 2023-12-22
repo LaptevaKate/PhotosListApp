@@ -8,11 +8,15 @@
 import Foundation
 
 struct GetModel: Decodable {
-    let content: [ContentList]
+    var content: [ContentList]
     let page: Int
     let pageSize: Int
     let totalElements: Int
     let totalPages: Int
+    
+    mutating func addContent(of content: [ContentList]) {
+        self.content.append(contentsOf: content)
+    }
 }
 
 struct ContentList: Decodable {

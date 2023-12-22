@@ -14,16 +14,20 @@ class NetworkService {
     
     //MARK: - Private Properties
     
-    private let baseUrl = BaseURL.urlGetString.rawValue
+    private let baseUrl = BaseURL.urlGetString.rawValue 
     private let urlPost = BaseURL.urlPostString.rawValue
     private let name: String = "Lapteva Ekaterina"
+    private var currentPage = 0
+    private var totalPages = 0
     
     private init(){}
     
     //MARK: - Public Methods
     
-    public func fetchData(completionHandler: @escaping(([ContentList]) -> Void)) {
-        if let url = URL.init(string: baseUrl) {
+    public func fetchData(completionHandler: @escaping((GetModel) -> Void)) {
+        guard currentPage < totalPages || currentPage == 0 else { return }
+        if let url = URL.init(string: "\(baseUrl)?page=\(currentPage)"){
+            print(url)
             URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {
                     print(error?.localizedDescription ?? "Error is unknown")
@@ -31,8 +35,10 @@ class NetworkService {
                 }
                 do {
                     let result = try JSONDecoder().decode(GetModel.self, from: data)
+                    self.totalPages = result.totalPages
+                    self.currentPage += 1
                     DispatchQueue.main.async {
-                        completionHandler(result.content)
+                        completionHandler(result)
                     }
                 } catch {
                     print(error.localizedDescription)
