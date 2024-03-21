@@ -8,11 +8,9 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UINavigationControllerDelegate {
-    
+final class MainViewController: UIViewController, UINavigationControllerDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
     //MARK: - Private Properties
     private var selectedId = 0
     private var getModel: GetModel?
@@ -23,12 +21,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
         tableView.register(ImageWithTitleTableViewCell.self, forCellReuseIdentifier: ImageWithTitleTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-        
         setUpInfo()
     }
-    
     // MARK: - Method
-    
     private func setUpInfo() {
         NetworkService.shared.fetchData { [weak self] model in
             if self?.getModel == nil {
@@ -39,7 +34,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
             self?.tableView.reloadData()
         }
     }
-    
     
     private func requestCameraPermission() {
         AVCaptureDevice.requestAccess(for: .video) { [weak self] accessGranted in
